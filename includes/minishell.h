@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 13:18:25 by teliet            #+#    #+#             */
-/*   Updated: 2023/01/18 18:51:49 by teliet           ###   ########.fr       */
+/*   Updated: 2023/01/19 14:06:44 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,10 @@ typedef struct s_env_var
 }   t_env_var;
 
 
-char	    **lexer(char *line);
+char	    **lexer(char const *str);
 t_env_var   *get_env_vars(char **env_list);
+
+// Utils
+char *remove_quotes(char *str);
 
 #endif

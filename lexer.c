@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   lexer.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 17:14:50 by teliet            #+#    #+#             */
-/*   Updated: 2023/01/17 18:32:45 by teliet           ###   ########.fr       */
+/*   Updated: 2023/01/19 14:07:14 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "minishell.h"
 
 int		get_word_end(char *str, int start, char sep)
 {
@@ -84,6 +84,18 @@ static char	*get_word(char *start, char sep)
 	return (word);
 }
 
+char	**trim_quotes(char **strs)
+{
+	int		i;
+
+	i = 0;
+	while(strs[i])
+	{
+		strs[i] = remove_quotes(strs[i]);
+		i++;
+	}
+	return(strs);
+}
 
 char	**lexer(char const *str)
 {
@@ -129,5 +141,5 @@ char	**lexer(char const *str)
 		count++;
 	}
 	strs[count] = NULL;
-	return (strs);
+	return (trim_quotes(strs));
 }

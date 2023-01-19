@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 13:10:37 by teliet            #+#    #+#             */
-/*   Updated: 2023/01/18 19:01:15 by teliet           ###   ########.fr       */
+/*   Updated: 2023/01/19 12:40:19 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,9 @@ int     main(int argc, char **argv, char **env)
     char *cmd;
     t_env_var *env_vars_list;
     prompt_msg = (char*) malloc(100);
-    prompt_msg = strcat(prompt_msg,"$ ");
     env_vars_list = get_env_vars(env);
     display_env_vars(env_vars_list);
+    printf("%c", 13);
     // HIST_ENTRY **the_history_list;
     // HISTORY_STATE *history;
     // using_history();
@@ -56,6 +56,7 @@ int     main(int argc, char **argv, char **env)
     while(1)
     {
         getcwd(prompt_msg, 100);
+        prompt_msg = strcat(prompt_msg,"$ ");
         prompt_msg = strcat(prompt_msg,"$ ");
         cmd = readline(prompt_msg);
         print_list_str(lexer((char *)cmd));
