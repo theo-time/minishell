@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 13:18:25 by teliet            #+#    #+#             */
-/*   Updated: 2023/01/17 17:41:41 by teliet           ###   ########.fr       */
+/*   Updated: 2023/01/18 18:51:49 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,15 @@
 #include <readline/readline.h>
 #include <readline/history.h>
 
-char	**lexer(char *line);
+typedef struct s_env_var 
+{
+    char *key;
+    char *value;
+    struct s_env_var *next;
+}   t_env_var;
+
+
+char	    **lexer(char *line);
+t_env_var   *get_env_vars(char **env_list);
 
 #endif
