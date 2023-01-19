@@ -6,13 +6,13 @@
 #    By: theo <theo@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/29 20:41:39 by teliet            #+#    #+#              #
-#    Updated: 2023/01/19 14:02:34 by theo             ###   ########.fr        #
+#    Updated: 2023/01/19 15:16:36 by theo             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = minishell
 
-SRC = main.c lexer.c get_env_vars.c utils/remove_quotes.c \
+SRC = main.c lexer.c get_env_vars.c utils/remove_quotes.c events/event_handler.c events/on_ctrl_C.c \
 
 CC = gcc
 

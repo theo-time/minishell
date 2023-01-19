@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 13:18:25 by teliet            #+#    #+#             */
-/*   Updated: 2023/01/19 14:06:44 by theo             ###   ########.fr       */
+/*   Updated: 2023/01/19 17:03:05 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@
 #include "libft.h"
 #include <readline/readline.h>
 #include <readline/history.h>
+#include <signal.h>
+#include <termios.h>
 
 typedef struct s_env_var 
 {
@@ -42,6 +44,10 @@ typedef struct s_env_var
 
 char	    **lexer(char const *str);
 t_env_var   *get_env_vars(char **env_list);
+
+// Event Management
+int     catch_user_signals();
+void    on_ctrl_c();
 
 // Utils
 char *remove_quotes(char *str);
